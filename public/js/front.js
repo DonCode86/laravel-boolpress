@@ -2012,8 +2012,13 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_sections_PostsSection_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/sections/PostsSection.vue */ "./resources/js/components/sections/PostsSection.vue");
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Home"
+  name: "Home",
+  components: {
+    PostsSection: _components_sections_PostsSection_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  }
 });
 
 /***/ }),
@@ -2253,7 +2258,7 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("h1", [_vm._v("Home Page")]);
+  return _c("PostsSection");
 };
 
 var staticRenderFns = [];

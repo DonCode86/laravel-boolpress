@@ -1,10 +1,14 @@
 <template>
-    <h1>Home Page</h1>
+    <PostsSection />
 </template>
 
 <script>
+import PostsSection from "../components/sections/PostsSection.vue";
 export default {
     name: "Home",
+    components: {
+        PostsSection,
+    },
 };
 </script>
 
