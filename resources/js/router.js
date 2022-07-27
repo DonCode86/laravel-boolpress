@@ -5,6 +5,7 @@ Vue.use(VueRouter);
 // @ts-ignore
 import Home from "./pages/Home";
 import About from "./pages/About";
+import NotFound from "./pages/NotFound";
 
 const router = new VueRouter({
     mode: "history",
@@ -18,6 +19,11 @@ const router = new VueRouter({
             path: "/chi-siamo",
             name: "about",
             component: About,
+        },
+        {
+            path: "/*",
+            name: "not-found",
+            component: NotFound,
         },
     ],
 });
