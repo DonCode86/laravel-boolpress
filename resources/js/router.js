@@ -2,8 +2,9 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 
 Vue.use(VueRouter);
-
+// @ts-ignore
 import Home from "./pages/Home";
+
 const router = new VueRouter({
     mode: "history",
     routes: [
