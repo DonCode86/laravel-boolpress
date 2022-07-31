@@ -1,8 +1,11 @@
 <template>
     <div class="container">
-        <!-- <h1>{{ post.title }}</h1>
+        <h1>{{ post.title }}</h1>
         <p>{{ post.content }}</p>
-        <h3>{{ post.user.name }}</h3> -->
+        <p>{{ post.category }}</p>
+        <div class="mt-5">
+            <router-link :to="{ name: 'home' }">Home Page</router-link>
+        </div>
     </div>
 </template>
 
@@ -15,10 +18,8 @@ export default {
         };
     },
     created() {
-        // console.log(this.$route.params.slug);
-        axios.get("/api/posts/${this.$route.params.slug}").then((response) => {
-            // this.post = response.data;
-            console.log(response);
+        axios.get(`/api/posts/${this.$route.params.slug}`).then((response) => {
+            this.post = response.data;
         });
     },
 };

@@ -1916,6 +1916,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     content: {
       type: String
+    },
+    slug: {
+      type: String
     }
   }
 });
@@ -2070,10 +2073,10 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   created: function created() {
-    // console.log(this.$route.params.slug);
-    axios.get("/api/posts/${this.$route.params.slug}").then(function (response) {
-      // this.post = response.data;
-      console.log(response);
+    var _this = this;
+
+    axios.get("/api/posts/".concat(this.$route.params.slug)).then(function (response) {
+      _this.post = response.data;
     });
   }
 });
@@ -2134,11 +2137,16 @@ var render = function render() {
     staticClass: "card"
   }, [_c("h3", [_vm._v(_vm._s(_vm.title))]), _vm._v(" "), _c("div", {
     staticClass: "card-content"
-  }, [_vm._v("\n        " + _vm._s(_vm.content) + "\n    ")]), _vm._v(" "), _c("a", {
+  }, [_vm._v("\n        " + _vm._s(_vm.content) + "\n    ")]), _vm._v(" "), _c("router-link", {
     attrs: {
-      href: "#"
+      to: {
+        name: "single-post",
+        params: {
+          slug: _vm.slug
+        }
+      }
     }
-  }, [_vm._v("Leggi di più")])]);
+  }, [_vm._v("Leggi di più")])], 1);
 };
 
 var staticRenderFns = [];
@@ -2288,7 +2296,8 @@ var render = function render() {
     }, [_c("BaseCard", {
       attrs: {
         title: post.title,
-        content: post.content
+        content: post.content,
+        slug: post.slug
       }
     })], 1);
   }), 0)])]);
@@ -2404,7 +2413,15 @@ var render = function render() {
 
   return _c("div", {
     staticClass: "container"
-  });
+  }, [_c("h1", [_vm._v(_vm._s(_vm.post.title))]), _vm._v(" "), _c("p", [_vm._v(_vm._s(_vm.post.content))]), _vm._v(" "), _c("p", [_vm._v(_vm._s(_vm.post.category))]), _vm._v(" "), _c("div", {
+    staticClass: "mt-5"
+  }, [_c("router-link", {
+    attrs: {
+      to: {
+        name: "home"
+      }
+    }
+  }, [_vm._v("Home Page")])], 1)]);
 };
 
 var staticRenderFns = [];
